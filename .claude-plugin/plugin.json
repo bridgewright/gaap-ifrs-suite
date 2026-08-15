@@ -1,0 +1,9 @@
+{
+  "name": "gaap-ifrs-suite",
+  "version": "0.2.0",
+  "displayName": "GAAP–IFRS Suite",
+  "description": "A deterministic local-GAAP conversion engine and a grounded accounting-standards retrieval service for professional review workflows.",
+  "author": { "name": "Taehyun Kim" },
+  "license": "MIT",
+  "keywords": ["IFRS", "GAAP", "accounting", "conversion", "retrieval", "MCP", "RAG"]
+}

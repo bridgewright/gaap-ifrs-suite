@@ -1,0 +1,32 @@
+name: Test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  conversion-engine:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m pip install pytest
+      - run: python -m pip install -e ./gaap-ifrs
+      - run: cd gaap-ifrs && python -m pytest -q
+      - run: python -m json.tool .claude-plugin/plugin.json > /dev/null
+      - run: python -m json.tool .codex-plugin/plugin.json > /dev/null
+      - run: python -m json.tool .claude-plugin/marketplace.json > /dev/null
+  retrieval-service:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install pytest "mcp>=1.2,<2" rank-bm25 numpy faiss-cpu zstandard trafilatura PyMuPDF
+      - run: python -m pytest -q

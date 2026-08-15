@@ -1,0 +1,12 @@
+{
+  "name": "gaap-ifrs-suite",
+  "owner": { "name": "Taehyun Kim" },
+  "description": "Deterministic accounting conversion and grounded standards retrieval.",
+  "plugins": [
+    {
+      "name": "gaap-ifrs-suite",
+      "source": "./",
+      "description": "Deterministic GAAP conversion and grounded standards retrieval."
+    }
+  ]
+}

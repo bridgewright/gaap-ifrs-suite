@@ -1,0 +1,13 @@
+downloads/
+corpus/vectors/
+logs/
+*.pyc
+*.egg-info/
+__pycache__/
+.pytest_cache/
+.venv/
+.env
+.DS_Store
+output/
+corpus/*.jsonl
+corpus/*.jsonl.zst
